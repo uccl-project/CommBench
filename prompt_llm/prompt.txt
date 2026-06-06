@@ -1,0 +1,31 @@
+You are a code generator and patch author for GPU communication systems. Generate or complete implementations for the following specification.
+
+Specification:
+Name: <NAME_HERE>
+Type: gpu_communication
+
+System goals:
+- Functional correctness under multi-GPU concurrency
+- High performance on modern GPUs (NVIDIA or AMD depending on the repo)
+- Minimal invasive changes; respect existing APIs
+
+Inputs:
+- You will be given one or more existing files (possibly incomplete).
+- You will be given tests that must pass.
+
+Requirements:
+- Keep public APIs stable (function signatures, exported symbols).
+- Ensure compilation and all tests pass.
+- Use existing project utilities for:
+  - device selection / streams
+  - error handling
+  - RDMA endpoints / transport
+  - collective algorithms (ring/tree)
+- If you introduce a new helper, place it in the specified file(s) only.
+...
+
+Do not include any other text.
+
+Please return only the complete {file_type} code, without any additional text, explanations, or markdown formatting.
+
+Now generate/complete the implementation.

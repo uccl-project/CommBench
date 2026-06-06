@@ -1,1 +1,145 @@
-# CommBench
+<div align="center" >
+  <p align="center">
+    <img src="figs/commbench-logo.png" height=350 alt="CommBench" style="margin-bottom:12px"/><br/>
+    <em>CommBench: can LLMs write correct and efficient GPU communication code?</em><br/><br/>
+  </p>
+
+  <p align="center">
+        <a href="https://uccl-project.github.io/posts/llm-gpu-comm-kernels/"><b>Blog</b></a> |
+        <a href="https://join.slack.com/t/uccl-dev/shared_invite/zt-3xbjdb0d0-tvDeUhGxtYxvGqsGKQ31Uw"><b>Join Slack</b></a> |
+        <a href="https://x.com/uccl_proj"><b>Twitter/X</b></a> |
+        <a href="#leaderboard"><b>Leaderboard</b></a> |
+        <a href="#quick-start"><b>Quick Start</b></a> |
+        <a href="datasets/readme.md"><b>Contributing</b></a>
+  </p>
+</div>
+
+## Highlights
+
+- **A benchmark for multi-device GPU communication code.** 100+ independently runnable examples spanning **P2P**, **collective**, **expert-parallel (EP)**, **compute–communication fusion**, and **utilities**, each labeled Easy / Medium / Hard.
+- **Curated by GPU communication experts.** Every example is hand-written by GPU communication experts or expert-extracted from production codebases including [Mscclpp](https://github.com/microsoft/mscclpp), [NCCL](https://github.com/NVIDIA/nccl), [NVSHMEM](https://developer.nvidia.com/nvshmem), [DeepEP](https://github.com/deepseek-ai/DeepEP), [ThunderKittens](https://github.com/HazyResearch/ThunderKittens), [vLLM](https://github.com/vllm-project/vllm), and [SGLang](https://github.com/sgl-project/sglang).
+- **Cheat-resistant evaluation harness.** Randomized test inputs, edit-region verification, and hidden build scripts prevent hard-coding and library substitution.
+- **Correctness *and* performance.** Generated code is compiled, run, and compared against a hand-written reference on both correctness and speed, with optional multi-round refinement from compile/run feedback.
+
+_Today's frontier LLMs write excellent single-device code yet consistently fail on multi-device GPU communication — precisely the code that bottlenecks large-scale LLM training and inference. CommBench measures, and aims to help close, that gap._
+
+## How It Works
+
+```
+ empty_*.cu/cpp          LLM (GPT, Gemini, Claude, Grok, GLM, Qwen …)          generated_*.cu/cpp
+ ┌──────────────┐              ┌──────────┐                   ┌──────────────────┐
+ │  // TODO     │  ── prompt ──▶│  Model   │── code response ──▶│  filled-in code  │
+ │  // TODO     │              └──────────┘                   └──────────────────┘
+ └──────────────┘                                                       │
+                                                                        ▼
+                                                              build & run & compare
+                                                                        │
+                                                                        ▼
+                                                            summary.json + plots
+```
+
+1. **Prompt** — reads the `empty_*` template (reference code with core logic stripped to `// TODO`), builds a completion prompt.
+2. **Generate** — sends the prompt to an LLM. With `--max-rounds > 1`, compile/run errors are fed back for self-correction.
+3. **Evaluate** — compiles and runs both reference and generated code, compares correctness and performance (latency, throughput), and produces CSV, plots, and a `summary.json`.
+
+## Benchmark Categories
+
+| Category | What it covers |
+|---|---|
+| **P2P** | Point-to-point transfer between a pair of devices |
+| **Collective** | Group operations across all ranks (AllReduce, AllGather, All-to-All, …) |
+| **EP** | Dynamic, non-uniform dispatch/combine traffic for MoE models |
+| **Fusion** | Kernels that interleave communication with compute (e.g., AllGather+GEMM) |
+| **Utilities** | Connection setup, buffer registration, topology queries, GPU–CPU FIFO queues |
+
+**By source**, examples span cuda-runtime, ibverbs, Mscclpp, NCCL, NVSHMEM, DeepEP, the NCCL device API, ThunderKittens, vLLM, and SGLang.
+
+## Leaderboard
+
+> Sorted by **Pass×GM** ⭐ — pass rate scaled by geometric-mean code quality on passing examples. See the [blog post](https://uccl-project.github.io/posts/llm-gpu-comm-kernels/) for full metric definitions and case studies.
+
+| Rank | Model | Price | Pass×GM | Pass Rate | PASS+Good | GM‑Speedup |
+|:----:|:------|:-----:|:-------:|:---------:|:---------:|:----------:|
+| 🥇 | **gpt-5.5** | $1.91 | **0.539** | 59.4% | 32.7% | 0.908 |
+| 🥈 | **gemini-3.1-pro-preview** | $0.26 | 0.305 | 36.6% | 25.7% | 0.832 |
+| 🥉 | **claude-opus-4-7** | $0.21 | 0.282 | 33.7% | 20.8% | 0.836 |
+| 4️⃣ | **glm-5.1** | $0.63 | 0.281 | 29.7% | 17.8% | 0.947 |
+| 5️⃣ | **kimi-k2.6** | $0.10 | 0.275 | 30.7% | 18.8% | 0.895 |
+| 6️⃣ | **qwen3.7-max** | $0.03 | 0.269 | 26.7% | 15.8% | 1.008 |
+| 7️⃣ | **deepseek-v4-pro** | $0.02 | 0.197 | 19.8% | 12.9% | 0.995 |
+
+Key findings:
+
+- **Even the strongest model passes under 60% of examples** and produces performant code on only a third.
+- **Every model collapses to near-zero coverage on specialized libraries** such as Mscclpp, ThunderKittens, and the NCCL device API — models hallucinate APIs, misplace synchronization, and ship kernels orders of magnitude slower than reference.
+- **Multi-round self-correction helps only on commodity libraries and easier tasks.** Giving deepseek-v4-pro 5 rounds raises its pass rate from 15.8% to 41.6%, but unlocks neither Hard examples nor specialized libraries.
+
+## Quick Start
+
+```bash
+# 1. Install dependencies
+pip install -r requirements.txt
+
+# 2. Set at least one API key (see how_to_find_api_key.md)
+export OPENAI_API_KEY="..."          # → --model gpt-4o
+export GOOGLE_API_KEY="..."          # → --model gemini-3-pro-preview
+export ANTHROPIC_API_KEY="..."       # → --model claude-sonnet-4-5-20250929
+
+# 3. Verify GPU compiler
+nvcc --version    # NVIDIA
+hipcc --version   # AMD
+
+# 4. Run an evaluation
+python scripts/generate_eval_one.py example001_gpu_comm_single_process \
+    --model gpt-4o \
+    --max-rounds 3
+```
+
+This reads the `empty_*` template, sends it to the model, compiles and runs the generated code, compares it against the reference, and writes a `summary.json` with correctness and performance results.
+
+### Options
+
+```bash
+python scripts/generate_eval_one.py <example_name> [options]
+
+Options:
+  --model MODEL          LLM to use (default: gpt-4o)
+  --max-rounds N         Max generation rounds with error feedback (default: 1)
+  --temperature FLOAT    Sampling temperature (default: 0.3)
+  --datasets-dir PATH    Base datasets directory (default: ./datasets)
+  --no-save              Don't save generated code
+  --quiet                Suppress detailed output
+```
+
+A single example's `build_and_run.py` can also be run directly:
+
+```bash
+python build_and_run.py --source ref_gpu_p2p_comm.cpp                              # build & run reference
+python build_and_run.py --compare ref_gpu_p2p_comm.cpp generated_gpu_p2p_comm.cpp  # compare ref vs generated
+```
+
+## Supported Models
+
+| Provider | Example `--model` values |
+|----------|--------------------------|
+| OpenAI | `gpt-4o`, `gpt-5.2` |
+| Google | `gemini-3-pro-preview` |
+| Anthropic | `claude-sonnet-4-5-20250929` |
+| Grok | `grok-3` |
+| DeepSeek | `deepseek-v4-pro` |
+| GLM | `z-ai/glm-4.5-air:free`, `glm-4.5-air` |
+| Qwen | `qwen2.5-7B`, `qwen3.6-27B`, `qwen-plus` |
+
+GLM and Qwen use OpenAI-compatible clients; override `GLM_BASE_URL` / `QWEN_BASE_URL` when needed.
+
+## Contributing
+
+To contribute a new example, please follow the requirements in the [Dataset Instructions](datasets/readme.md).
+
+## Acknowledgements
+
+We thank Mibura and AMD for sponsoring the testbed for this benchmark.
+
+## License
+
+MIT License

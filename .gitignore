@@ -1,0 +1,163 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C/C++ compiled files
+*.o
+*.obj
+*.exe
+*.out
+*.a
+*.so
+*.dylib
+
+# Compiled executables (from build_and_run.py)
+gpu_p2p_comm
+rdma_loopback
+rdma_p2p
+fifo_test
+h2dfifo_test
+ref_h2dfifo_test_unified
+fifo_test_generated_fifo_test_unified
+fifo_test_ref_fifo_test_unified
+ref_exec
+gen_exec
+rdma_cmp_swp
+rdma_write_sgl
+rdma_fetch_add
+ref_mscclpp_allgather
+ref_mscclpp_all2all
+ref_nvshmem_atomic_fetch_inc
+rdma_uc_send_recv
+ref_nvshmem_broadcast
+ref_nvshmem_put_and_signal
+rdma_ibv_wr_bind
+empty_rdma_ibv_wr_bind
+rdma_ibv_get_async_event
+ref_nvshmem_tiled_produce_consume
+gpu_ipc_comm
+intranode_gpu_barrier
+list_gpu_attributes
+ref_deepep_dispatch_layout
+ref_deepep_intranode_notify_dispatch
+ref_mscclpp_allreduce
+ref_mscclpp_memorychannel_get
+ref_mscclpp_memorychannel_put
+ref_mscclpp_reducescatter
+ref_mscclpp_relaxedsingal
+ref_nccl_device_api_allgather_intra
+ref_nccl_device_api_allreduce
+ref_nccl_device_api_intranode_alltoall
+ref_nccl_device_reducescatter
+ref_nccl_device_api_internode_allreduce
+# ThunderKittens compiled-binary suffixes only (e.g. _B300, _H100, _A100).
+# Use character classes so we don't accidentally match `_fp8.cu` etc.
+ref_thunderkitten_all_reduce_[A-Z][0-9][0-9][0-9]
+ref_thunderkitten_alltoall_[A-Z][0-9][0-9][0-9]
+empty_thunderkitten_alltoall_[A-Z][0-9][0-9][0-9]
+ref_thunderkitten_reduce_scatter_[A-Z][0-9][0-9][0-9]
+empty_thunderkitten_reduce_scatter_[A-Z][0-9][0-9][0-9]
+ref_thunderkitten_ag_gemm_[A-Z][0-9][0-9][0-9]
+empty_thunderkitten_ag_gemm_[A-Z][0-9][0-9][0-9]
+ref_thunderkitten_ag_gemm_fp8_[A-Z][0-9][0-9][0-9]
+empty_thunderkitten_ag_gemm_fp8_[A-Z][0-9][0-9][0-9]
+ref_thunderkitten_gemm_ar_[A-Z][0-9][0-9][0-9]
+empty_thunderkitten_gemm_ar_[A-Z][0-9][0-9][0-9]
+ref_thunderkitten_gemm_rs_[A-Z][0-9][0-9][0-9]
+empty_thunderkitten_gemm_rs_[A-Z][0-9][0-9][0-9]
+ref_thunderkitten_gemm_rs_fp8_[A-Z][0-9][0-9][0-9]
+empty_thunderkitten_gemm_rs_fp8_[A-Z][0-9][0-9][0-9]
+ref_thunderkitten_moe_dispatch_gemm_[A-Z][0-9][0-9][0-9]
+empty_thunderkitten_moe_dispatch_gemm_[A-Z][0-9][0-9][0-9]
+ref_thunderkitten_all_gather_[A-Z][0-9][0-9][0-9]
+empty_thunderkitten_all_gather_[A-Z][0-9][0-9][0-9]
+ref_thunderkitten_ring_attn_[A-Z][0-9][0-9][0-9]
+empty_thunderkitten_ring_attn_[A-Z][0-9][0-9][0-9]
+ref_thunderkitten_ulysses_attn_[A-Z][0-9][0-9][0-9]
+empty_thunderkitten_ulysses_attn_[A-Z][0-9][0-9][0-9]
+# example72+ GPU/TMA microbenchmark binaries (moved from per-folder .gitignore)
+ref_gpu_barrier_within_cta
+gpu_barrier_within_cta
+ref_p2p_pingpong_latency
+p2p_pingpong_latency
+ref_p2p_d2d_bandwidth
+p2p_d2d_bandwidth
+ref_d2h_copy_bandwidth
+d2h_copy_bandwidth
+ref_globaltimer_nanosleep
+globaltimer_nanosleep
+ref_vectorized_copy_widths
+vectorized_copy_widths
+ref_tma_bulk_copy
+tma_bulk_copy
+# Per-run generated FIFO executables (suffix carries model + round + ts).
+# The bare-name entry on line 22 doesn't match the suffixed variants.
+fifo_test_generated_fifo_test_unified_*
+h2dfifo_test_generated_h2dfifo_test_unified_*
+h2dfifo_test_ref_h2dfifo_test_unified
+# RDMA / NIC info / memory-pool / ibv_query example binaries
+nic_info_a
+nic_info_b
+rdma_nic_info
+rdma_recv_send
+rdma_recv_send_gen
+rdma_recv_send_ref
+rdma_ud_exec
+gpu_mr_pool
+ibv_query_rt_values_ex
+ref_ibv_query_qp_data_in_order
+ref_sglang_custom_allreduce_pull
+ref_sglang_qknorm_fused
+ref_sglang_custom_allreduce_pull
+
+# Local API keys — must never be committed
+keys.sh
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Environment and secrets
+.env
+.env.local
+*.key
+credentials.json
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log
+
+# Generated code from LLM
+datasets/**/generated_*.cpp
+datasets/**/generated_*.cu
+datasets/**/generated_*
+
+# Benchmark plots / results
+datasets/**/plots*/
+datasets/**/results*/
+
+# Build directories
+build/
+dist/
+*.egg-info/
+datasets/.build/
+datasets/**/.build/
+datasets/build_mscclpp/
+
+# Test artifacts
+.pytest_cache/
+.coverage
+htmlcov/
+

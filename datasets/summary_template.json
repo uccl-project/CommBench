@@ -1,0 +1,29 @@
+{
+  "generated_source": "generated_fifo_test_unified_plots_gpt-5.2_round4_20260202_165140.cu",
+  "ref_source": "ref_fifo_test_unified.cu",
+  "model": "deepseek-v3.2",
+  "pass_iteration": 1,
+  "improvement_iteration": 1,
+  "data_size_unit": "MB",
+  "latency_unit": "us",
+  "throughput_unit": "Mbps",
+  "metrics_comparison": {
+    "ref": {
+      "compile_success": true,
+      "run_success": true,
+      "data_size_avg": 256.0,
+      "latency_avg": 2358.259833333333,
+      "throughput": 41.31119433333333
+    },
+    "generated": {
+      "compile_success": true,
+      "run_success": true,
+      "data_size_avg": 256.0,
+      "latency_avg": 2358.259833333333,
+      "throughput": 41.31119433333333
+    }
+  },
+  "latency_improvement_pct": 0.0,
+  "throughput_improvement_pct": 0.0,
+  "performance": "same"
+}

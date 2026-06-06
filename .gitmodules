@@ -1,0 +1,13 @@
+[submodule "datasets/third_party/mscclpp"]
+	path = datasets/third_party/mscclpp
+	url = https://github.com/Yuy1L1/mscclpp.git
+	branch = vendor/local-v0.9.0-patch
+[submodule "datasets/third_party/ThunderKittens"]
+	path = datasets/third_party/ThunderKittens
+	url = https://github.com/HazyResearch/ThunderKittens.git
+[submodule "datasets/third_party/DeepEP"]
+	path = datasets/third_party/DeepEP
+	url = https://github.com/deepseek-ai/DeepEP.git
+[submodule "datasets/third_party/flux"]
+	path = datasets/third_party/flux
+	url = https://github.com/bytedance/flux.git
