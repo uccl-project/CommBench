@@ -40,7 +40,7 @@ _Today's frontier LLMs write excellent single-device code yet consistently fail 
 
 1. **Prompt** — reads the `empty_*` template (reference code with core logic stripped to `// TODO`), builds a completion prompt.
 2. **Generate** — sends the prompt to an LLM. With `--max-rounds > 1`, compile/run errors are fed back for self-correction.
-3. **Evaluate** — compiles and runs both reference and generated code, compares correctness and performance (latency, throughput), and produces CSV, plots, and a `summary.json`.
+3. **Evaluate** — compiles and runs both reference and generated code, compares correctness and performance (latency, throughput), and produces CSV, plots, and a `summary.json`. Supported models: OpenAI GPT, Google Gemini, Anthropic Claude, Grok, DeepSeek, GLM, and Qwen.
 
 ## Benchmark Categories
 
@@ -67,6 +67,59 @@ _Today's frontier LLMs write excellent single-device code yet consistently fail 
 | 5️⃣ | **kimi-k2.6** | $0.10 | 0.275 | 30.7% | 18.8% | 0.895 |
 | 6️⃣ | **qwen3.7-max** | $0.03 | 0.269 | 26.7% | 15.8% | 1.008 |
 | 7️⃣ | **deepseek-v4-pro** | $0.02 | 0.197 | 19.8% | 12.9% | 0.995 |
+
+### Metrics
+
+| Metric | Formula | What it measures |
+|:-------|:--------|:----------------|
+| **Pass×GM** ⭐ | Pass Rate × GM‑Speedup | Pass rate scaled by geometric-mean code quality on passing examples. Primary ranking metric. |
+| **Pass Rate** | PASS / Total | Fraction of examples where code compiled, ran, and produced correct results. |
+| **PASS+Good** | (on\_compare + better) / Total | Fraction of all examples with correct **and** performant code (within −5% of reference). |
+| **GM‑Speedup** | GM of per-example speedup scores | Geometric mean of generated-vs-reference performance ratios over passing examples, taken across measured data sizes so each data point contributes equally. |
+| **Price** | — | Average cost per example (USD). |
+
+### Top vs. Bottom Model
+
+A detailed comparison of the highest- and lowest-scoring models, gpt-5.5 (Pass×GM = 0.539) and deepseek-v4-pro (Pass×GM = 0.197).
+
+#### Difficulty Breakdown
+
+<table>
+<tr>
+<td align="center" width="50%"><b>GPT-5.5</b></td>
+<td align="center" width="50%"><b>DeepSeek-V4-Pro</b></td>
+</tr>
+<tr>
+<td><img src="figs/fig1_level_breakdown_gpt-5.5.png" width="100%"></td>
+<td><img src="figs/fig1_level_breakdown_deepseek-v4-pro.png" width="100%"></td>
+</tr>
+</table>
+
+#### Performance Quality Among PASS Examples
+
+<table>
+<tr>
+<td align="center" width="50%"><b>GPT-5.5</b></td>
+<td align="center" width="50%"><b>DeepSeek-V4-Pro</b></td>
+</tr>
+<tr>
+<td><img src="figs/fig2_pass_performance_gpt-5.5.png" width="100%"></td>
+<td><img src="figs/fig2_pass_performance_deepseek-v4-pro.png" width="100%"></td>
+</tr>
+</table>
+
+#### Tag and Library Coverage
+
+<table>
+<tr>
+<td align="center" width="50%"><b>GPT-5.5</b></td>
+<td align="center" width="50%"><b>DeepSeek-V4-Pro</b></td>
+</tr>
+<tr>
+<td><img src="figs/fig3_radar_tag_library_gpt-5.5.png" width="100%"></td>
+<td><img src="figs/fig3_radar_tag_library_deepseek-v4-pro.png" width="100%"></td>
+</tr>
+</table>
 
 Key findings:
 
@@ -117,20 +170,6 @@ A single example's `build_and_run.py` can also be run directly:
 python build_and_run.py --source ref_gpu_p2p_comm.cpp                              # build & run reference
 python build_and_run.py --compare ref_gpu_p2p_comm.cpp generated_gpu_p2p_comm.cpp  # compare ref vs generated
 ```
-
-## Supported Models
-
-| Provider | Example `--model` values |
-|----------|--------------------------|
-| OpenAI | `gpt-4o`, `gpt-5.2` |
-| Google | `gemini-3-pro-preview` |
-| Anthropic | `claude-sonnet-4-5-20250929` |
-| Grok | `grok-3` |
-| DeepSeek | `deepseek-v4-pro` |
-| GLM | `z-ai/glm-4.5-air:free`, `glm-4.5-air` |
-| Qwen | `qwen2.5-7B`, `qwen3.6-27B`, `qwen-plus` |
-
-GLM and Qwen use OpenAI-compatible clients; override `GLM_BASE_URL` / `QWEN_BASE_URL` when needed.
 
 ## Contributing
 
