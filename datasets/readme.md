@@ -22,7 +22,7 @@ Details for each step follow below.
 
 ### Standard Example
 
-[llm-for-gpu-comm/datasets/example001_gpu_comm_single_process/nv](./example001_gpu_comm_single_process/nv)
+[CommBench/datasets/example001_gpu_comm_single_process/nv](./example001_gpu_comm_single_process/nv)
 
 ---
 
@@ -220,7 +220,7 @@ def build_and_run(...)
 Example:
 
 ```bash
-cd llm-for-gpu-comm/datasets/example001_gpu_comm_single_process/nv
+cd CommBench/datasets/example001_gpu_comm_single_process/nv
 python build_and_run.py --source ref_gpu_p2p_comm.cpp
 ```
 
@@ -395,7 +395,7 @@ Required Command-Line Arguments, The script must support the following arguments
 * `--compare`
   Enables comparison mode by building and running a reference and a generated source file.
 
-* You may add additional optional arguments if needed. However, the required arguments listed above must be fully implemented as specified, and **must not be removed or renamed**. You can refer to `llm-for-gpu-comm/datasets/example001_gpu_comm_single_process/nv/build_and_run.py` as an example implementation.
+* You may add additional optional arguments if needed. However, the required arguments listed above must be fully implemented as specified, and **must not be removed or renamed**. You can refer to `CommBench/datasets/example001_gpu_comm_single_process/nv/build_and_run.py` as an example implementation.
 
 ---
 # Empty File Requirements

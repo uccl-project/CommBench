@@ -5,7 +5,7 @@
   </p>
 
   <p align="center">
-        <a href="https://uccl-project.github.io/posts/llm-gpu-comm-kernels/"><b>Blog</b></a> |
+        <a href="https://uccl-project.github.io/posts/commbench/"><b>Blog</b></a> |
         <a href="https://join.slack.com/t/uccl-dev/shared_invite/zt-3xbjdb0d0-tvDeUhGxtYxvGqsGKQ31Uw"><b>Join Slack</b></a> |
         <a href="https://x.com/uccl_proj"><b>Twitter/X</b></a> |
         <a href="#leaderboard"><b>Leaderboard</b></a> |
@@ -56,17 +56,17 @@ _Today's frontier LLMs write excellent single-device code yet consistently fail 
 
 ## Leaderboard
 
-> Sorted by **Pass×GM** ⭐ — pass rate scaled by geometric-mean code quality on passing examples. See the [blog post](https://uccl-project.github.io/posts/llm-gpu-comm-kernels/) for full metric definitions and case studies.
+> Sorted by **Pass×GM** ⭐ — pass rate scaled by geometric-mean code quality on passing examples. See the [blog post](https://uccl-project.github.io/posts/commbench/) for full metric definitions and case studies.
 
-| Rank | Model | Price | Pass×GM | Pass Rate | PASS+Good | GM‑Speedup |
-|:----:|:------|:-----:|:-------:|:---------:|:---------:|:----------:|
-| 🥇 | **gpt-5.5** | $1.91 | **0.539** | 59.4% | 32.7% | 0.908 |
-| 🥈 | **gemini-3.1-pro-preview** | $0.26 | 0.305 | 36.6% | 25.7% | 0.832 |
-| 🥉 | **claude-opus-4-7** | $0.21 | 0.282 | 33.7% | 20.8% | 0.836 |
-| 4️⃣ | **glm-5.1** | $0.63 | 0.281 | 29.7% | 17.8% | 0.947 |
-| 5️⃣ | **kimi-k2.6** | $0.10 | 0.275 | 30.7% | 18.8% | 0.895 |
-| 6️⃣ | **qwen3.7-max** | $0.03 | 0.269 | 26.7% | 15.8% | 1.008 |
-| 7️⃣ | **deepseek-v4-pro** | $0.02 | 0.197 | 19.8% | 12.9% | 0.995 |
+| Rank | Model | Pass×GM | Pass Rate | PASS+Good | GM‑Speedup | Open Source | Price |
+|:----:|:------|:-------:|:---------:|:---------:|:----------:|:-----------:|:-----:|
+| 🥇 | **gpt-5.5** | **0.467** | 57.4% | 30.7% | 0.813 | ❌ | $1.91 |
+| 🥈 | **gemini-3.1-pro-preview** | 0.305 | 36.6% | 25.7% | 0.832 | ❌ | $0.26 |
+| 🥉 | **claude-opus-4-7** | 0.282 | 33.7% | 20.8% | 0.836 | ❌ | $0.21 |
+| 4️⃣ | **glm-5.1** | 0.281 | 29.7% | 17.8% | 0.947 | ✅ | $0.63 |
+| 5️⃣ | **kimi-k2.6** | 0.275 | 30.7% | 18.8% | 0.895 | ✅ | $0.10 |
+| 6️⃣ | **qwen3.7-max** | 0.269 | 26.7% | 15.8% | 1.008 | ❌ | $0.03 |
+| 7️⃣ | **deepseek-v4-pro** | 0.197 | 19.8% | 12.9% | 0.995 | ✅ | $0.02 |
 
 ### Metrics
 
@@ -80,7 +80,7 @@ _Today's frontier LLMs write excellent single-device code yet consistently fail 
 
 ### Top vs. Bottom Model
 
-A detailed comparison of the highest- and lowest-scoring models, gpt-5.5 (Pass×GM = 0.539) and deepseek-v4-pro (Pass×GM = 0.197).
+A detailed comparison of the highest- and lowest-scoring models, gpt-5.5 (Pass×GM = 0.467) and deepseek-v4-pro (Pass×GM = 0.197).
 
 #### Difficulty Breakdown
 
