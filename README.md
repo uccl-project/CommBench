@@ -21,7 +21,7 @@
 - **Cheat-resistant evaluation harness.** Randomized test inputs, edit-region verification, and hidden build scripts prevent hard-coding and library substitution.
 - **Correctness *and* performance.** Generated code is compiled, run, and compared against a hand-written reference on both correctness and speed, with optional multi-round refinement from compile/run feedback.
 
-_Today's frontier LLMs write excellent single-device code yet consistently fail on multi-device GPU communication — precisely the code that bottlenecks large-scale LLM training and inference. CommBench measures, and aims to help close, that gap._
+_Today's frontier LLMs write excellent single-device code yet consistently fail on multi-device GPU communication, precisely the code that bottlenecks large-scale LLM training and inference. CommBench measures, and aims to help close, that gap._
 
 ## How It Works
 
@@ -75,7 +75,7 @@ _Today's frontier LLMs write excellent single-device code yet consistently fail 
 | **Pass×GM** ⭐ | Pass Rate × GM‑Speedup | Pass rate scaled by geometric-mean code quality on passing examples. Primary ranking metric. |
 | **Pass Rate** | PASS / Total | Fraction of examples where code compiled, ran, and produced correct results. |
 | **PASS+Good** | (on\_compare + better) / Total | Fraction of all examples with correct **and** performant code (within −5% of reference). |
-| **GM‑Speedup** | GM of per-example speedup scores | Geometric mean of generated-vs-reference performance ratios over passing examples, taken across measured data sizes so each data point contributes equally. |
+| **GM‑Speedup** | GM of per-example speedup scores | Geometric mean of generated-vs-reference performance ratios over passing examples, taken across measured data sizes so each data point contributes equally. Computed only over *passing* examples, so a model that passes more (often harder) examples with mediocre performance can score lower; we therefore rank by Pass×GM. |
 | **Price** | — | Average cost per example (USD). |
 
 ### Top vs. Bottom Model
@@ -124,7 +124,7 @@ A detailed comparison of the highest- and lowest-scoring models, gpt-5.5 (Pass×
 Key findings:
 
 - **Even the strongest model passes under 60% of examples** and produces performant code on only a third.
-- **Every model collapses to near-zero coverage on specialized libraries** such as Mscclpp, ThunderKittens, and the NCCL device API — models hallucinate APIs, misplace synchronization, and ship kernels orders of magnitude slower than reference.
+- **Every model collapses to near-zero coverage on specialized libraries** such as Mscclpp, ThunderKittens, and the NCCL device API. Models hallucinate APIs, misplace synchronization, and ship kernels orders of magnitude slower than reference.
 - **Multi-round self-correction helps only on commodity libraries and easier tasks.** Giving deepseek-v4-pro 5 rounds raises its pass rate from 15.8% to 41.6%, but unlocks neither Hard examples nor specialized libraries.
 
 ## Quick Start
@@ -133,7 +133,7 @@ Key findings:
 # 1. Install dependencies
 pip install -r requirements.txt
 
-# 2. Set at least one API key (see how_to_find_api_key.md)
+# 2. Set at least one API key
 export OPENAI_API_KEY="..."          # → --model gpt-4o
 export GOOGLE_API_KEY="..."          # → --model gemini-3-pro-preview
 export ANTHROPIC_API_KEY="..."       # → --model claude-sonnet-4-5-20250929
