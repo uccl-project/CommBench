@@ -28,7 +28,7 @@ _Today's frontier LLMs write excellent single-device code yet consistently fail 
 ```
  empty_*.cu/cpp          LLM (GPT, Gemini, Claude, Grok, GLM, Qwen …)          generated_*.cu/cpp
  ┌──────────────┐              ┌──────────┐                   ┌──────────────────┐
- │  // TODO     │  ── prompt ──▶│  Model   │── code response ──▶│  filled-in code  │
+ │  // TODO     │ ── prompt ──▶│  Model   │── code response──▶│  filled-in code  │
  │  // TODO     │              └──────────┘                   └──────────────────┘
  └──────────────┘                                                       │
                                                                         ▼
