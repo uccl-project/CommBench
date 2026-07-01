@@ -18,6 +18,12 @@ from pathlib import Path
 _HISTORY_DIFF_CHAR_CAP = 3000
 _HISTORY_ERROR_CHAR_CAP = 1500
 
+ANTI_CHEAT_RULES = """IMPORTANT — Anti-cheat rules (violations will be detected and flagged):
+- Only implement functions marked with //TODO; do not modify any other function.
+- You may add new helper functions, but do not change existing ones that lack //TODO.
+- Every TODO section must be genuinely implemented with real logic.
+- Do NOT output hardcoded or fake metric values to pass tests."""
+
 
 def _truncate_middle(text: str, cap: int) -> str:
     """Trim text to `cap` chars by keeping head and tail and eliding the middle."""
@@ -198,6 +204,8 @@ Requirements:
 - Follow idiomatic Python and PyTorch practices.
 - Do not introduce unnecessary dependencies.
 
+{ANTI_CHEAT_RULES}
+
 The code to be completed is as follows:
 
 {source_content}
@@ -234,6 +242,8 @@ Requirements:
   - RDMA endpoints / transport
   - collective algorithms (ring/tree)
 - If you introduce a new helper, place it in the specified file(s) only.
+
+{ANTI_CHEAT_RULES}
 
 The code to be completed is as follows:
 
@@ -460,6 +470,8 @@ Requirements:
 - Fix only what is necessary to resolve the error.
 - Take the earlier failed attempts (if any) into account: do not propose a
   patch that is essentially equivalent to one already shown to fail.
+
+{ANTI_CHEAT_RULES}
 
 Do not include any other text.
 

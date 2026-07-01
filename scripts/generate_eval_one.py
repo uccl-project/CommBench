@@ -15,6 +15,7 @@ import time
 import argparse
 import contextlib
 from datetime import datetime
+from pathlib import Path
 from typing import Tuple, Optional, ContextManager
 
 # Auto-detect project root (llm-for-gpu-comm/) from this script's location
@@ -44,6 +45,11 @@ from run_eval.compile_run import (
     get_platform_subdir
 )
 from run_eval.platform_detect import detect_platform, get_platform_string, PlatformInfo
+from run_eval.cheat_detect import (
+    check_non_todo_modified,
+    format_modified_functions,
+    run_all_checks,
+)
 
 
 # Substrings (lower-case) that mark a transient/quota-related LLM error
@@ -131,7 +137,7 @@ def generate_eval_one(
     llm_max_retries: int = 6,
     llm_backoff_base: float = 4.0,
     no_ref: bool = False,
-) -> Tuple[bool, str, CompileRunResult, int, Optional[dict]]:
+) -> Tuple[bool, str, Optional[CompileRunResult], int, Optional[dict]]:
     """
     Generate code for one dataset and evaluate it with multi-round retry.
 
@@ -351,11 +357,94 @@ def generate_eval_one(
             if verbose:
                 print("(Skipped saving - save_generated=False)")
 
-        # Step 5: Compile and run using build_and_run.py
+        # Always create a per-round results dir so this round's generated
+        # source ends up co-located with whatever artifacts (summary.json,
+        # CSVs, plots) the round produces. Successful rounds run the
+        # inline compare into this dir; failed rounds get just the source.
+        # Layout: results/<model>/round<N>_<ts>/  — one subdir per model so
+        # different models' outputs never collide.
+        results_timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        results_dirname = f"round{round_num}_{results_timestamp}"
+        current_round_dir = os.path.join(working_dir, "results", model_safe, results_dirname)
+        os.makedirs(current_round_dir, exist_ok=True)
+
+        # Save the exact prompt sent to the LLM in this round, alongside the
+        # generated source and any artifacts. This is what the LLM saw — for
+        # round 1 it's the initial empty_* completion prompt, for round 2+
+        # it's the retry prompt (with previous error, current code, and any
+        # tried-and-failed history). Useful for diffing prompts across
+        # rounds and explaining why a given attempt looked the way it did.
+        prompt_save_path = os.path.join(current_round_dir, "prompt.txt")
+        try:
+            with open(prompt_save_path, "w", encoding="utf-8") as f:
+                f.write(current_prompt)
+            if verbose:
+                print(f"Saved round {round_num} prompt to {prompt_save_path} "
+                      f"({len(current_prompt)} chars)")
+        except Exception as e:
+            if verbose:
+                print(f"WARN: failed to save prompt to {prompt_save_path}: {e}")
+
+        # Step 5: Check generated code for template cheating before
+        # compiling. A cheat is terminal for this dataset: do not retry.
+        if verbose:
+            print("\n[Step 5] Running cheat detection...")
+
+        try:
+            cheat_result = run_all_checks(Path(generated_filepath), Path(empty_file))
+        except Exception as e:
+            error_msg = f"Failed during cheat detection: {str(e)}"
+            if verbose:
+                print(f"ERROR: {error_msg}")
+            return False, error_msg, None, round_num, None
+
+        if cheat_result.cheat_detected:
+            reason = f"CHEAT: {'; '.join(cheat_result.reasons)}"
+            passed = False
+
+            summary_path = os.path.join(current_round_dir, "summary.json")
+            summary_data = {
+                "status": "cheat",
+                "cheat_detected": True,
+                "cheat_reasons": cheat_result.reasons,
+                "model": model,
+                "pass_iteration": None,
+                "improvement_iteration": None,
+            }
+            with open(summary_path, "w", encoding="utf-8") as f:
+                json.dump(summary_data, f, indent=2)
+
+            if verbose:
+                print("\nCHEAT DETECTED")
+                for cheat_reason in cheat_result.reasons:
+                    print(f"  - {cheat_reason}")
+                _, modified = check_non_todo_modified(Path(generated_filepath), Path(empty_file))
+                if modified:
+                    print(format_modified_functions(modified))
+                print(f"Summary saved to {summary_path}")
+
+            # Move THIS round's generated source into THIS round's results dir
+            # so each round's code stays coupled with its results.
+            if save_generated and os.path.isfile(generated_filepath):
+                try:
+                    shutil.move(generated_filepath, os.path.join(current_round_dir, generated_filename))
+                    if verbose:
+                        print(f"Moved generated source to {current_round_dir}/{generated_filename}")
+                except Exception as e:
+                    if verbose:
+                        print(f"WARN: failed to move {generated_filepath} into {current_round_dir}: {e}")
+
+            last_compared_dir = None
+            break
+
+        if verbose:
+            print("NO CHEAT DETECTED")
+        
+        # Step 6: Compile and run using build_and_run.py
         # Held under execution_lock so that the GPU/NIC isn't simultaneously
         # being driven by another example's binary while we measure perf.
         if verbose:
-            print("\n[Step 5] Compiling and running (serialized)...")
+            print("\n[Step 6] Compiling and running (serialized)...")
 
         try:
             with execution_lock:
@@ -385,9 +474,9 @@ def generate_eval_one(
                 print(f"ERROR: {error_msg}")
             return False, error_msg, None, round_num, None
 
-        # Step 6: Analyze results
+        # Step 7: Analyze results
         if verbose:
-            print("\n[Step 6] Analyzing results...")
+            print("\n[Step 7] Analyzing results...")
 
         passed, reason = analyze_result(result)
 
@@ -399,34 +488,6 @@ def generate_eval_one(
                 print(f"ROUND {round_num} RESULT: FAIL")
             print(f"Reason: {reason}")
             print("-" * 40)
-
-        # Always create a per-round results dir so this round's generated
-        # source ends up co-located with whatever artifacts (summary.json,
-        # CSVs, plots) the round produces. Successful rounds run the
-        # inline compare into this dir; failed rounds get just the source.
-        # Layout: results/<model>/round<N>_<ts>/  — one subdir per model so
-        # different models' outputs never collide.
-        results_timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        results_dirname = f"round{round_num}_{results_timestamp}"
-        current_round_dir = os.path.join(working_dir, "results", model_safe, results_dirname)
-        os.makedirs(current_round_dir, exist_ok=True)
-
-        # Save the exact prompt sent to the LLM in this round, alongside the
-        # generated source and any artifacts. This is what the LLM saw — for
-        # round 1 it's the initial empty_* completion prompt, for round 2+
-        # it's the retry prompt (with previous error, current code, and any
-        # tried-and-failed history). Useful for diffing prompts across
-        # rounds and explaining why a given attempt looked the way it did.
-        prompt_save_path = os.path.join(current_round_dir, "prompt.txt")
-        try:
-            with open(prompt_save_path, "w", encoding="utf-8") as f:
-                f.write(current_prompt)
-            if verbose:
-                print(f"Saved round {round_num} prompt to {prompt_save_path} "
-                      f"({len(current_prompt)} chars)")
-        except Exception as e:
-            if verbose:
-                print(f"WARN: failed to save prompt to {prompt_save_path}: {e}")
 
         # For FAILED rounds, save the full build/run output so we can audit
         # what the LLM was supposed to fix. PASS rounds produce summary.json
@@ -471,7 +532,7 @@ def generate_eval_one(
 
         if passed and compare_enabled:
             if verbose:
-                print(f"\n[Step 7] Inline comparison for round {round_num} → {current_round_dir} (serialized)")
+                print(f"\n[Step 8] Inline comparison for round {round_num} → {current_round_dir} (serialized)")
 
             # compare_save_results rebuilds and re-runs BOTH ref and
             # generated to produce perf metrics — hold the execution lock so
