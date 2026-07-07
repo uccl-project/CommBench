@@ -1,0 +1,68 @@
+{
+  "Correctness": "PASS",
+  "latency_unit": "us",
+  "metrics": [
+    {
+      "latency_avg": 2.143169,
+      "ops_per_pe": 1,
+      "pass": true,
+      "throughput_avg": 3.73279
+    },
+    {
+      "latency_avg": 1.809067,
+      "ops_per_pe": 4,
+      "pass": true,
+      "throughput_avg": 4.422169
+    },
+    {
+      "latency_avg": 1.720647,
+      "ops_per_pe": 16,
+      "pass": true,
+      "throughput_avg": 4.649415
+    },
+    {
+      "latency_avg": 1.698772,
+      "ops_per_pe": 64,
+      "pass": true,
+      "throughput_avg": 4.709283
+    },
+    {
+      "latency_avg": 1.693198,
+      "ops_per_pe": 256,
+      "pass": true,
+      "throughput_avg": 4.724788
+    },
+    {
+      "latency_avg": 1.691919,
+      "ops_per_pe": 640,
+      "pass": true,
+      "throughput_avg": 4.728359
+    },
+    {
+      "latency_avg": 1.691535,
+      "ops_per_pe": 1280,
+      "pass": true,
+      "throughput_avg": 4.729433
+    },
+    {
+      "latency_avg": 1.691407,
+      "ops_per_pe": 2560,
+      "pass": true,
+      "throughput_avg": 4.729789
+    },
+    {
+      "latency_avg": 1.691198,
+      "ops_per_pe": 5120,
+      "pass": true,
+      "throughput_avg": 4.730375
+    },
+    {
+      "latency_avg": 1.691138,
+      "ops_per_pe": 10240,
+      "pass": true,
+      "throughput_avg": 4.730541
+    }
+  ],
+  "ops_per_pe_unit": "calls/PE/round",
+  "throughput_unit": "Mops/s"
+}

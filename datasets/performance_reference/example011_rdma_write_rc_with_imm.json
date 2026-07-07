@@ -1,0 +1,9 @@
+{
+  "Correctness": "PASS",
+  "latency_unit": "us",
+  "metrics": [
+    {
+      "latency_avg": 2.97
+    }
+  ]
+}

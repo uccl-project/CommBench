@@ -1,0 +1,13 @@
+{
+  "Correctness": "PASS",
+  "data_size_unit": "B",
+  "latency_unit": "us",
+  "metrics": [
+    {
+      "data_size": 8.0,
+      "latency_avg": 2.638,
+      "throughput_avg": 379039.827
+    }
+  ],
+  "throughput_unit": "items_per_sec"
+}

@@ -1,0 +1,41 @@
+{
+  "Correctness": "PASS",
+  "avg_probes_unit": "count",
+  "data_size_unit": "threads",
+  "latency_unit": "us",
+  "metrics": [
+    {
+      "avg_probes": 1.0,
+      "data_size": 32,
+      "iters": 4096,
+      "latency_avg": 0.4657,
+      "producers": 31,
+      "throughput_avg": 2.13
+    },
+    {
+      "avg_probes": 1.0,
+      "data_size": 64,
+      "iters": 4096,
+      "latency_avg": 0.6168,
+      "producers": 63,
+      "throughput_avg": 3.2684
+    },
+    {
+      "avg_probes": 1.0,
+      "data_size": 128,
+      "iters": 4096,
+      "latency_avg": 0.9231,
+      "producers": 127,
+      "throughput_avg": 4.4027
+    },
+    {
+      "avg_probes": 1.0,
+      "data_size": 256,
+      "iters": 4096,
+      "latency_avg": 1.5361,
+      "producers": 255,
+      "throughput_avg": 5.3122
+    }
+  ],
+  "throughput_unit": "Gbps"
+}

@@ -1,0 +1,38 @@
+{
+  "Correctness": "PASS",
+  "bandwidth_unit": "Gbps",
+  "latency_unit": "usec",
+  "metrics": [
+    {
+      "bandwidth_gbps": 2.85316,
+      "latency_usec": 2.8712,
+      "msg_size": 1024
+    },
+    {
+      "bandwidth_gbps": 10.366,
+      "latency_usec": 3.1611,
+      "msg_size": 4096
+    },
+    {
+      "bandwidth_gbps": 31.5708,
+      "latency_usec": 4.15169,
+      "msg_size": 16384
+    },
+    {
+      "bandwidth_gbps": 59.9274,
+      "latency_usec": 8.74872,
+      "msg_size": 65536
+    },
+    {
+      "bandwidth_gbps": 66.2532,
+      "latency_usec": 31.6536,
+      "msg_size": 262144
+    },
+    {
+      "bandwidth_gbps": 70.1318,
+      "latency_usec": 119.612,
+      "msg_size": 1048576
+    }
+  ],
+  "msg_size_unit": "bytes"
+}

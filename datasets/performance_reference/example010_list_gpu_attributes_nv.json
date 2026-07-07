@@ -1,0 +1,19 @@
+{
+  "Correctness": "PASS",
+  "gpu_count": 1,
+  "gpus": [
+    {
+      "clockRateKHz": 1980000,
+      "major": 9,
+      "maxThreadsPerBlock": 1024,
+      "memoryBusWidthBits": 6144,
+      "memoryClockRateKHz": 2619000,
+      "minor": 0,
+      "name": "NVIDIA GH200 480GB",
+      "sharedMemPerBlockBytes": 49152,
+      "smCount": 132,
+      "totalGlobalMemBytes": 102005473280,
+      "warpSize": 32
+    }
+  ]
+}

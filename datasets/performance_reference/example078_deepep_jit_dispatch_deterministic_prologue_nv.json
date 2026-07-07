@@ -1,0 +1,65 @@
+{
+  "Correctness": "PASS",
+  "data_size_unit": "MB",
+  "kernel": "dispatch_deterministic_prologue",
+  "latency_unit": "us",
+  "metrics": [
+    {
+      "data_size": 0.01312,
+      "latency_avg": 4.729,
+      "name": "dispatch_deterministic_prologue",
+      "rank": 0,
+      "throughput_avg": 2.7743709029393107
+    },
+    {
+      "data_size": 0.013096,
+      "latency_avg": 4.422,
+      "name": "dispatch_deterministic_prologue",
+      "rank": 1,
+      "throughput_avg": 2.9615558570782454
+    },
+    {
+      "data_size": 0.013072,
+      "latency_avg": 4.541,
+      "name": "dispatch_deterministic_prologue",
+      "rank": 2,
+      "throughput_avg": 2.8786610878661087
+    },
+    {
+      "data_size": 0.013048,
+      "latency_avg": 4.691,
+      "name": "dispatch_deterministic_prologue",
+      "rank": 3,
+      "throughput_avg": 2.781496482626306
+    },
+    {
+      "data_size": 0.013024,
+      "latency_avg": 4.502,
+      "name": "dispatch_deterministic_prologue",
+      "rank": 4,
+      "throughput_avg": 2.89293647267881
+    },
+    {
+      "data_size": 0.013,
+      "latency_avg": 4.432,
+      "name": "dispatch_deterministic_prologue",
+      "rank": 5,
+      "throughput_avg": 2.9332129963898916
+    },
+    {
+      "data_size": 0.012976,
+      "latency_avg": 4.384,
+      "name": "dispatch_deterministic_prologue",
+      "rank": 6,
+      "throughput_avg": 2.9598540145985393
+    },
+    {
+      "data_size": 0.012952,
+      "latency_avg": 4.525,
+      "name": "dispatch_deterministic_prologue",
+      "rank": 7,
+      "throughput_avg": 2.86232044198895
+    }
+  ],
+  "throughput_unit": "GB/s"
+}

@@ -1,0 +1,64 @@
+{
+  "Correctness": "PASS",
+  "data_size_unit": "MB",
+  "latency_unit": "us",
+  "metrics": [
+    {
+      "data_size": 1,
+      "latency_avg": 7139.95,
+      "throughput_avg": 1.17488
+    },
+    {
+      "data_size": 2,
+      "latency_avg": 5624.15,
+      "throughput_avg": 2.98307
+    },
+    {
+      "data_size": 4,
+      "latency_avg": 143.904,
+      "throughput_avg": 233.172
+    },
+    {
+      "data_size": 8,
+      "latency_avg": 197.888,
+      "throughput_avg": 339.125
+    },
+    {
+      "data_size": 16,
+      "latency_avg": 382.336,
+      "throughput_avg": 351.047
+    },
+    {
+      "data_size": 32,
+      "latency_avg": 744.351,
+      "throughput_avg": 360.63
+    },
+    {
+      "data_size": 64,
+      "latency_avg": 1464.77,
+      "throughput_avg": 366.524
+    },
+    {
+      "data_size": 128,
+      "latency_avg": 2889.31,
+      "throughput_avg": 371.626
+    },
+    {
+      "data_size": 256,
+      "latency_avg": 5931.38,
+      "throughput_avg": 362.055
+    },
+    {
+      "data_size": 512,
+      "latency_avg": 11429.5,
+      "throughput_avg": 375.778
+    },
+    {
+      "data_size": 1024,
+      "latency_avg": 22855.2,
+      "throughput_avg": 375.842
+    }
+  ],
+  "num_sge": 2,
+  "throughput_unit": "Gbps"
+}

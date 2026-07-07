@@ -1,0 +1,42 @@
+{
+  "Correctness": "PASS",
+  "data_size_unit": "MB",
+  "latency_cuda_memcpy_unit": "us",
+  "latency_unit": "us",
+  "metrics": [
+    {
+      "data_size": 16,
+      "latency_avg": 37.504,
+      "latency_cuda_memcpy": 30.496,
+      "mode": "kernel_push",
+      "throughput_avg": 447.3447,
+      "throughput_cuda_memcpy": 550.1448
+    },
+    {
+      "data_size": 64,
+      "latency_avg": 117.792,
+      "latency_cuda_memcpy": 97.12,
+      "mode": "kernel_push",
+      "throughput_avg": 569.7234,
+      "throughput_cuda_memcpy": 690.9891
+    },
+    {
+      "data_size": 256,
+      "latency_avg": 466.112,
+      "latency_cuda_memcpy": 353.696,
+      "mode": "kernel_push",
+      "throughput_avg": 575.9034,
+      "throughput_cuda_memcpy": 758.944
+    },
+    {
+      "data_size": 1024,
+      "latency_avg": 1870.304,
+      "latency_cuda_memcpy": 1381.76,
+      "mode": "kernel_push",
+      "throughput_avg": 574.1002,
+      "throughput_cuda_memcpy": 777.0827
+    }
+  ],
+  "throughput_cuda_memcpy_unit": "GB/s",
+  "throughput_unit": "GB/s"
+}

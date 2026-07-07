@@ -1,0 +1,10 @@
+{
+  "Correctness": "PASS",
+  "latency_avg": 1161.73,
+  "latency_unit": "us",
+  "metrics": [
+    {
+      "latency_avg": 1161.73
+    }
+  ]
+}

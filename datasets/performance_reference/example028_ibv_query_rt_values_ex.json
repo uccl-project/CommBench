@@ -1,0 +1,12 @@
+{
+  "Correctness": "PASS",
+  "latency_unit": "us",
+  "metrics": [
+    {
+      "chrono_overhead_ratio": 0.2595,
+      "latency_avg": 4.2,
+      "latency_avg_chrono_us": 5.3,
+      "latency_avg_hw_us": 4.2
+    }
+  ]
+}

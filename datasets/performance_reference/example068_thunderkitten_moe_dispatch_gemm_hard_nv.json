@@ -1,0 +1,38 @@
+{
+  "Correctness": "PASS",
+  "data_size_unit": "MB",
+  "latency_unit": "ms",
+  "metrics": [
+    {
+      "data_size": 16.7772,
+      "latency_avg": 6.4969,
+      "throughput_avg": 4.62755
+    },
+    {
+      "data_size": 16.7772,
+      "latency_avg": 6.52079,
+      "throughput_avg": 9.22121
+    },
+    {
+      "data_size": 16.7772,
+      "latency_avg": 6.55532,
+      "throughput_avg": 18.3453
+    },
+    {
+      "data_size": 33.5544,
+      "latency_avg": 12.9611,
+      "throughput_avg": 18.5569
+    },
+    {
+      "data_size": 67.1089,
+      "latency_avg": 25.6104,
+      "throughput_avg": 18.7828
+    },
+    {
+      "data_size": 134.218,
+      "latency_avg": 51.0675,
+      "throughput_avg": 18.8393
+    }
+  ],
+  "throughput_unit": "TFLOPs"
+}

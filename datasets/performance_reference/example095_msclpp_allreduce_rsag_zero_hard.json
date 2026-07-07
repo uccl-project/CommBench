@@ -1,0 +1,86 @@
+{
+  "Correctness": "PASS",
+  "actual_bytes_unit": "B",
+  "data_size_unit": "MiB",
+  "latency_unit": "us",
+  "metrics": [
+    {
+      "actual_bytes": 1048320,
+      "data_size": 1,
+      "latency_avg": 687.033,
+      "pass": true,
+      "throughput_avg": 1.526
+    },
+    {
+      "actual_bytes": 3145728,
+      "data_size": 3,
+      "latency_avg": 686.627,
+      "pass": true,
+      "throughput_avg": 4.581
+    },
+    {
+      "actual_bytes": 6291456,
+      "data_size": 6,
+      "latency_avg": 686.857,
+      "pass": true,
+      "throughput_avg": 9.16
+    },
+    {
+      "actual_bytes": 12582912,
+      "data_size": 12,
+      "latency_avg": 698.116,
+      "pass": true,
+      "throughput_avg": 18.024
+    },
+    {
+      "actual_bytes": 25165824,
+      "data_size": 24,
+      "latency_avg": 746.309,
+      "pass": true,
+      "throughput_avg": 33.72
+    },
+    {
+      "actual_bytes": 50331648,
+      "data_size": 48,
+      "latency_avg": 857.172,
+      "pass": true,
+      "throughput_avg": 58.718
+    },
+    {
+      "actual_bytes": 100663296,
+      "data_size": 96,
+      "latency_avg": 1027.345,
+      "pass": true,
+      "throughput_avg": 97.984
+    },
+    {
+      "actual_bytes": 201326592,
+      "data_size": 192,
+      "latency_avg": 1510.431,
+      "pass": true,
+      "throughput_avg": 133.291
+    },
+    {
+      "actual_bytes": 402653184,
+      "data_size": 384,
+      "latency_avg": 2440.002,
+      "pass": true,
+      "throughput_avg": 165.022
+    },
+    {
+      "actual_bytes": 805306368,
+      "data_size": 768,
+      "latency_avg": 4402.686,
+      "pass": true,
+      "throughput_avg": 182.913
+    },
+    {
+      "actual_bytes": 1610612736,
+      "data_size": 1536,
+      "latency_avg": 8131.706,
+      "pass": true,
+      "throughput_avg": 198.066
+    }
+  ],
+  "throughput_unit": "GB/s"
+}

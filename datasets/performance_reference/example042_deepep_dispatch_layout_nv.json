@@ -1,0 +1,71 @@
+{
+  "Correctness": "PASS",
+  "data_size_unit": "tokens",
+  "latency_unit": "us",
+  "metrics": [
+    {
+      "data_size": 1024,
+      "latency_avg": 4.833,
+      "num_experts": 32,
+      "num_ranks": 8,
+      "num_topk": 2,
+      "pattern": "spread",
+      "throughput_avg": 211.892
+    },
+    {
+      "data_size": 4096,
+      "latency_avg": 12.914,
+      "num_experts": 32,
+      "num_ranks": 8,
+      "num_topk": 2,
+      "pattern": "spread",
+      "throughput_avg": 317.177
+    },
+    {
+      "data_size": 16384,
+      "latency_avg": 44.35,
+      "num_experts": 32,
+      "num_ranks": 8,
+      "num_topk": 2,
+      "pattern": "spread",
+      "throughput_avg": 369.424
+    },
+    {
+      "data_size": 65536,
+      "latency_avg": 170.113,
+      "num_experts": 32,
+      "num_ranks": 8,
+      "num_topk": 2,
+      "pattern": "spread",
+      "throughput_avg": 385.249
+    },
+    {
+      "data_size": 65536,
+      "latency_avg": 256.602,
+      "num_experts": 32,
+      "num_ranks": 8,
+      "num_topk": 4,
+      "pattern": "rank_sweep",
+      "throughput_avg": 255.4
+    },
+    {
+      "data_size": 65536,
+      "latency_avg": 478.191,
+      "num_experts": 32,
+      "num_ranks": 8,
+      "num_topk": 8,
+      "pattern": "same_rank",
+      "throughput_avg": 137.05
+    },
+    {
+      "data_size": 65536,
+      "latency_avg": 147.058,
+      "num_experts": 32,
+      "num_ranks": 4,
+      "num_topk": 2,
+      "pattern": "spread",
+      "throughput_avg": 445.649
+    }
+  ],
+  "throughput_unit": "Mtokens/s"
+}

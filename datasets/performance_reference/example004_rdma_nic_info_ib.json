@@ -1,0 +1,22 @@
+{
+  "Correctness": "PASS",
+  "atomic_cap": "HCA",
+  "device_name": "mlx5_0",
+  "fw_ver": "32.38.3056",
+  "max_cq": 16777216,
+  "max_cqe": 4194303,
+  "max_mr": 16777216,
+  "max_pd": 8388608,
+  "max_qp": 131072,
+  "max_qp_wr": 32768,
+  "max_sge": 30,
+  "num_ports": 1,
+  "port_1_active_mtu": "4096",
+  "port_1_active_speed": 128,
+  "port_1_active_width": 2,
+  "port_1_gid_count": 8,
+  "port_1_link_layer": "InfiniBand",
+  "port_1_state": "PORT_ACTIVE",
+  "vendor_id": "0x02c9",
+  "vendor_part_id": "0xa2dc"
+}

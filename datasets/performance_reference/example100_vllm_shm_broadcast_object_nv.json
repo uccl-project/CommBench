@@ -1,0 +1,33 @@
+{
+  "Correctness": "PASS",
+  "data_size_unit": "KB",
+  "latency_unit": "us",
+  "metrics": [
+    {
+      "data_size": 1.0,
+      "latency_avg": 11.9723,
+      "throughput_avg": 83525.9169
+    },
+    {
+      "data_size": 16.0,
+      "latency_avg": 13.4066,
+      "throughput_avg": 74590.3611
+    },
+    {
+      "data_size": 64.0,
+      "latency_avg": 18.7172,
+      "throughput_avg": 53426.7826
+    },
+    {
+      "data_size": 256.0,
+      "latency_avg": 45.798,
+      "throughput_avg": 21835.016
+    },
+    {
+      "data_size": 1024.0,
+      "latency_avg": 194.9801,
+      "throughput_avg": 5128.728
+    }
+  ],
+  "throughput_unit": "msg_per_s"
+}

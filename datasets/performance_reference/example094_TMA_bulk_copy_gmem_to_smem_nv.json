@@ -1,0 +1,61 @@
+{
+  "Correctness": "PASS",
+  "aggregate_throughput_unit": "GB/s",
+  "metrics": [
+    {
+      "aggregate_throughput": 122.7841,
+      "iters_per_cta": 256,
+      "num_ctas": 1,
+      "num_stages": 3,
+      "tile_bytes": 65536,
+      "tile_latency_avg": 0.5337,
+      "total_bytes": 16777216
+    },
+    {
+      "aggregate_throughput": 491.1363,
+      "iters_per_cta": 256,
+      "num_ctas": 4,
+      "num_stages": 3,
+      "tile_bytes": 65536,
+      "tile_latency_avg": 0.5337,
+      "total_bytes": 67108864
+    },
+    {
+      "aggregate_throughput": 1961.7886,
+      "iters_per_cta": 256,
+      "num_ctas": 16,
+      "num_stages": 3,
+      "tile_bytes": 65536,
+      "tile_latency_avg": 0.5345,
+      "total_bytes": 268435456
+    },
+    {
+      "aggregate_throughput": 3448.5541,
+      "iters_per_cta": 256,
+      "num_ctas": 64,
+      "num_stages": 3,
+      "tile_bytes": 65536,
+      "tile_latency_avg": 1.2163,
+      "total_bytes": 1073741824
+    },
+    {
+      "aggregate_throughput": 3801.2751,
+      "iters_per_cta": 256,
+      "num_ctas": 132,
+      "num_stages": 3,
+      "tile_bytes": 65536,
+      "tile_latency_avg": 2.2758,
+      "total_bytes": 2214592512
+    },
+    {
+      "aggregate_throughput": 3809.9597,
+      "iters_per_cta": 256,
+      "num_ctas": 264,
+      "num_stages": 3,
+      "tile_bytes": 65536,
+      "tile_latency_avg": 4.5411,
+      "total_bytes": 4429185024
+    }
+  ],
+  "tile_latency_unit": "us"
+}

@@ -1,0 +1,48 @@
+{
+  "Correctness": "PASS",
+  "data_size_unit": "MB",
+  "latency_unit": "us",
+  "metrics": [
+    {
+      "data_size": 16,
+      "latency_avg": 169.024,
+      "latency_kernel": 53.792,
+      "latency_pageable": 141.472,
+      "mode": "cudaMemcpyAsync_pinned",
+      "throughput_avg": 99.2594,
+      "throughput_kernel": 311.8905,
+      "throughput_pageable": 118.5904
+    },
+    {
+      "data_size": 64,
+      "latency_avg": 875.68,
+      "latency_kernel": 206.656,
+      "latency_pageable": 858.656,
+      "mode": "cudaMemcpyAsync_pinned",
+      "throughput_avg": 76.6363,
+      "throughput_kernel": 324.7371,
+      "throughput_pageable": 78.1557
+    },
+    {
+      "data_size": 256,
+      "latency_avg": 3508.8639,
+      "latency_kernel": 822.464,
+      "latency_pageable": 3388.0,
+      "mode": "cudaMemcpyAsync_pinned",
+      "throughput_avg": 76.5021,
+      "throughput_kernel": 326.3796,
+      "throughput_pageable": 79.2312
+    },
+    {
+      "data_size": 1024,
+      "latency_avg": 15961.3762,
+      "latency_kernel": 4490.0479,
+      "latency_pageable": 15106.3042,
+      "mode": "cudaMemcpyAsync_pinned",
+      "throughput_avg": 67.2713,
+      "throughput_kernel": 239.1382,
+      "throughput_pageable": 71.0791
+    }
+  ],
+  "throughput_unit": "GB/s"
+}
