@@ -1,0 +1,44 @@
+{
+  "Correctness": "PASS",
+  "actual_bytes_unit": "B",
+  "data_size_unit": "MiB/rank",
+  "latency_unit": "us",
+  "metrics": [
+    {
+      "actual_bytes": 2097152,
+      "data_size": 1,
+      "latency_avg": 64.301,
+      "pass": true,
+      "throughput_avg": 32.614
+    },
+    {
+      "actual_bytes": 25165824,
+      "data_size": 12,
+      "latency_avg": 672.442,
+      "pass": true,
+      "throughput_avg": 37.425
+    },
+    {
+      "actual_bytes": 100663296,
+      "data_size": 48,
+      "latency_avg": 3666.191,
+      "pass": true,
+      "throughput_avg": 27.457
+    },
+    {
+      "actual_bytes": 402653184,
+      "data_size": 192,
+      "latency_avg": 17254.587,
+      "pass": true,
+      "throughput_avg": 23.336
+    },
+    {
+      "actual_bytes": 805306368,
+      "data_size": 384,
+      "latency_avg": 34478.9,
+      "pass": true,
+      "throughput_avg": 23.356
+    }
+  ],
+  "throughput_unit": "GB/s"
+}

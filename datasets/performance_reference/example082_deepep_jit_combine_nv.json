@@ -1,0 +1,65 @@
+{
+  "Correctness": "PASS",
+  "data_size_unit": "MB",
+  "kernel": "combine_impl",
+  "latency_unit": "us",
+  "metrics": [
+    {
+      "data_size": 0.766464,
+      "latency_avg": 20.746,
+      "name": "combine_impl",
+      "rank": 0,
+      "throughput_avg": 36.94514605225104
+    },
+    {
+      "data_size": 0.771064,
+      "latency_avg": 22.31,
+      "name": "combine_impl",
+      "rank": 1,
+      "throughput_avg": 34.561362617660244
+    },
+    {
+      "data_size": 0.748528,
+      "latency_avg": 22.903,
+      "name": "combine_impl",
+      "rank": 2,
+      "throughput_avg": 32.68253067283762
+    },
+    {
+      "data_size": 0.724968,
+      "latency_avg": 24.227,
+      "name": "combine_impl",
+      "rank": 3,
+      "throughput_avg": 29.923969125356006
+    },
+    {
+      "data_size": 0.715744,
+      "latency_avg": 22.745,
+      "name": "combine_impl",
+      "rank": 4,
+      "throughput_avg": 31.46819081116729
+    },
+    {
+      "data_size": 0.796632,
+      "latency_avg": 21.373,
+      "name": "combine_impl",
+      "rank": 5,
+      "throughput_avg": 37.27282084873438
+    },
+    {
+      "data_size": 0.763344,
+      "latency_avg": 22.051,
+      "name": "combine_impl",
+      "rank": 6,
+      "throughput_avg": 34.61720556890844
+    },
+    {
+      "data_size": 0.76692,
+      "latency_avg": 22.253,
+      "name": "combine_impl",
+      "rank": 7,
+      "throughput_avg": 34.463667820069205
+    }
+  ],
+  "throughput_unit": "GB/s"
+}

@@ -1,0 +1,53 @@
+{
+  "Correctness": "PASS",
+  "data_size_unit": "token-routes",
+  "latency_unit": "us",
+  "metrics": [
+    {
+      "data_size": 4096,
+      "latency_avg": 35.04,
+      "throughput_avg": 116.895
+    },
+    {
+      "data_size": 32768,
+      "latency_avg": 33.959,
+      "throughput_avg": 964.931
+    },
+    {
+      "data_size": 131072,
+      "latency_avg": 33.533,
+      "throughput_avg": 3908.78
+    },
+    {
+      "data_size": 8192,
+      "latency_avg": 51.293,
+      "throughput_avg": 159.711
+    },
+    {
+      "data_size": 65536,
+      "latency_avg": 51.083,
+      "throughput_avg": 1282.926
+    },
+    {
+      "data_size": 262144,
+      "latency_avg": 51.215,
+      "throughput_avg": 5118.531
+    },
+    {
+      "data_size": 16384,
+      "latency_avg": 75.38,
+      "throughput_avg": 217.352
+    },
+    {
+      "data_size": 131072,
+      "latency_avg": 75.406,
+      "throughput_avg": 1738.208
+    },
+    {
+      "data_size": 524288,
+      "latency_avg": 75.267,
+      "throughput_avg": 6965.708
+    }
+  ],
+  "throughput_unit": "Mtoken-routes/s"
+}

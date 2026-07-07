@@ -1,0 +1,33 @@
+{
+  "Correctness": "PASS",
+  "error_ns_unit": "ns",
+  "measured_ratio_unit": "ratio",
+  "metrics": [
+    {
+      "error_ns": 44.2,
+      "measured_ratio": 1.442,
+      "requested_ns": 100
+    },
+    {
+      "error_ns": -350.6,
+      "measured_ratio": 0.6494,
+      "requested_ns": 1000
+    },
+    {
+      "error_ns": -8291.4,
+      "measured_ratio": 0.1709,
+      "requested_ns": 10000
+    },
+    {
+      "error_ns": 13805.6,
+      "measured_ratio": 1.1381,
+      "requested_ns": 100000
+    },
+    {
+      "error_ns": 13646.4,
+      "measured_ratio": 1.0136,
+      "requested_ns": 1000000
+    }
+  ],
+  "requested_ns_unit": "ns"
+}

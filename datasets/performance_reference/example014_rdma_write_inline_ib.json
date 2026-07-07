@@ -1,0 +1,14 @@
+{
+  "Correctness": "PASS",
+  "data_size_unit": "bytes",
+  "latency_unit": "us",
+  "max_inline_size": 572,
+  "metrics": [
+    {
+      "data_size": 256,
+      "latency_avg": 6638.8,
+      "throughput_avg": 0.308489
+    }
+  ],
+  "throughput_unit": "Mbps"
+}

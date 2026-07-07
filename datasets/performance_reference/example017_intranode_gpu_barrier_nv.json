@@ -1,0 +1,43 @@
+{
+  "Correctness": "PASS",
+  "data_size_unit": "GPUs",
+  "latency_unit": "us",
+  "metrics": [
+    {
+      "data_size": 2,
+      "latency_avg": 3.997,
+      "throughput_avg": 250.211
+    },
+    {
+      "data_size": 3,
+      "latency_avg": 4.429,
+      "throughput_avg": 225.77
+    },
+    {
+      "data_size": 4,
+      "latency_avg": 4.877,
+      "throughput_avg": 205.033
+    },
+    {
+      "data_size": 5,
+      "latency_avg": 5.23,
+      "throughput_avg": 191.195
+    },
+    {
+      "data_size": 6,
+      "latency_avg": 5.264,
+      "throughput_avg": 189.98
+    },
+    {
+      "data_size": 7,
+      "latency_avg": 5.287,
+      "throughput_avg": 189.136
+    },
+    {
+      "data_size": 8,
+      "latency_avg": 5.34,
+      "throughput_avg": 187.258
+    }
+  ],
+  "throughput_unit": "Kbarriers/s"
+}

@@ -1,0 +1,50 @@
+{
+  "Correctness": "PASS",
+  "metrics": [
+    {
+      "in_order": 0,
+      "opcode": "SEND",
+      "transport": "RC"
+    },
+    {
+      "in_order": 0,
+      "opcode": "RDMA_WRITE",
+      "transport": "RC"
+    },
+    {
+      "in_order": 0,
+      "opcode": "RDMA_WRITE_WITH_IMM",
+      "transport": "RC"
+    },
+    {
+      "in_order": 0,
+      "opcode": "SEND",
+      "transport": "UC"
+    },
+    {
+      "in_order": 0,
+      "opcode": "RDMA_WRITE",
+      "transport": "UC"
+    },
+    {
+      "in_order": 0,
+      "opcode": "RDMA_WRITE_WITH_IMM",
+      "transport": "UC"
+    },
+    {
+      "in_order": 0,
+      "opcode": "SEND",
+      "transport": "UD"
+    },
+    {
+      "in_order": 0,
+      "opcode": "RDMA_WRITE",
+      "transport": "UD"
+    },
+    {
+      "in_order": 0,
+      "opcode": "RDMA_WRITE_WITH_IMM",
+      "transport": "UD"
+    }
+  ]
+}

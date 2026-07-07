@@ -1,0 +1,39 @@
+{
+  "Correctness": "PASS",
+  "algbw_unit": "GB/s",
+  "busbw_unit": "GB/s",
+  "data_size_unit": "MB",
+  "latency_unit": "us",
+  "metrics": [
+    {
+      "algbw": 245.155,
+      "busbw": 245.155,
+      "data_size": 4,
+      "latency_avg": 17.109
+    },
+    {
+      "algbw": 547.903,
+      "busbw": 547.903,
+      "data_size": 16,
+      "latency_avg": 30.621
+    },
+    {
+      "algbw": 631.91,
+      "busbw": 631.91,
+      "data_size": 64,
+      "latency_avg": 106.2
+    },
+    {
+      "algbw": 664.386,
+      "busbw": 664.386,
+      "data_size": 128,
+      "latency_avg": 202.018
+    },
+    {
+      "algbw": 650.48,
+      "busbw": 650.48,
+      "data_size": 256,
+      "latency_avg": 412.673
+    }
+  ]
+}

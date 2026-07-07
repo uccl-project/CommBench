@@ -1,0 +1,70 @@
+{
+  "Correctness": "PASS",
+  "data_size_unit": "B",
+  "latency_unit": "us",
+  "mem_type": "gpu",
+  "metrics": [
+    {
+      "correct": true,
+      "data_size": 64,
+      "latency_avg": 156.224,
+      "throughput_avg": 3.27735
+    },
+    {
+      "correct": true,
+      "data_size": 256,
+      "latency_avg": 68.448,
+      "throughput_avg": 29.9205
+    },
+    {
+      "correct": true,
+      "data_size": 512,
+      "latency_avg": 33.408,
+      "throughput_avg": 122.605
+    },
+    {
+      "correct": true,
+      "data_size": 1024,
+      "latency_avg": 33.28,
+      "throughput_avg": 246.154
+    },
+    {
+      "correct": true,
+      "data_size": 2048,
+      "latency_avg": 15.52,
+      "throughput_avg": 1055.67
+    },
+    {
+      "correct": true,
+      "data_size": 4096,
+      "latency_avg": 18.72,
+      "throughput_avg": 1750.43
+    },
+    {
+      "correct": true,
+      "data_size": 8192,
+      "latency_avg": 202.208,
+      "throughput_avg": 324.102
+    },
+    {
+      "correct": true,
+      "data_size": 65536,
+      "latency_avg": 16.064,
+      "throughput_avg": 32637.5
+    },
+    {
+      "correct": true,
+      "data_size": 131072,
+      "latency_avg": 48.96,
+      "throughput_avg": 21417
+    },
+    {
+      "correct": true,
+      "data_size": 262144,
+      "latency_avg": 76.223,
+      "throughput_avg": 27513.4
+    }
+  ],
+  "throughput_unit": "Mbps",
+  "ud_mtu_bytes": 4096
+}

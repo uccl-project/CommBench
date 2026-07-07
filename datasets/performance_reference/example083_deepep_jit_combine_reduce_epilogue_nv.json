@@ -1,0 +1,65 @@
+{
+  "Correctness": "PASS",
+  "data_size_unit": "MB",
+  "kernel": "combine_reduce_epilogue_impl",
+  "latency_unit": "us",
+  "metrics": [
+    {
+      "data_size": 0.766464,
+      "latency_avg": 6.863999999999999,
+      "name": "combine_reduce_epilogue_impl",
+      "rank": 0,
+      "throughput_avg": 111.66433566433568
+    },
+    {
+      "data_size": 0.771064,
+      "latency_avg": 6.39,
+      "name": "combine_reduce_epilogue_impl",
+      "rank": 1,
+      "throughput_avg": 120.66729264475744
+    },
+    {
+      "data_size": 0.748528,
+      "latency_avg": 6.525,
+      "name": "combine_reduce_epilogue_impl",
+      "rank": 2,
+      "throughput_avg": 114.71693486590037
+    },
+    {
+      "data_size": 0.724968,
+      "latency_avg": 8.592,
+      "name": "combine_reduce_epilogue_impl",
+      "rank": 3,
+      "throughput_avg": 84.37709497206704
+    },
+    {
+      "data_size": 0.715744,
+      "latency_avg": 6.959999999999999,
+      "name": "combine_reduce_epilogue_impl",
+      "rank": 4,
+      "throughput_avg": 102.83678160919541
+    },
+    {
+      "data_size": 0.796632,
+      "latency_avg": 5.555,
+      "name": "combine_reduce_epilogue_impl",
+      "rank": 5,
+      "throughput_avg": 143.40810081008104
+    },
+    {
+      "data_size": 0.763344,
+      "latency_avg": 5.722,
+      "name": "combine_reduce_epilogue_impl",
+      "rank": 6,
+      "throughput_avg": 133.4051031108004
+    },
+    {
+      "data_size": 0.76692,
+      "latency_avg": 6.163,
+      "name": "combine_reduce_epilogue_impl",
+      "rank": 7,
+      "throughput_avg": 124.43939639785819
+    }
+  ],
+  "throughput_unit": "GB/s"
+}

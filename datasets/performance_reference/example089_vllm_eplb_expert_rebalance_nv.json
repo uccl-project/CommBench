@@ -1,0 +1,28 @@
+{
+  "Correctness": "PASS",
+  "data_size_unit": "MB",
+  "latency_unit": "us",
+  "metrics": [
+    {
+      "data_size": 0.0312,
+      "latency_avg": 2060.0122,
+      "throughput_avg": 0.0318
+    },
+    {
+      "data_size": 0.125,
+      "latency_avg": 2072.7344,
+      "throughput_avg": 0.1265
+    },
+    {
+      "data_size": 0.5,
+      "latency_avg": 2075.607,
+      "throughput_avg": 0.5052
+    },
+    {
+      "data_size": 2.0,
+      "latency_avg": 5671.9158,
+      "throughput_avg": 0.7395
+    }
+  ],
+  "throughput_unit": "Gbps"
+}

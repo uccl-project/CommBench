@@ -1,0 +1,32 @@
+{
+  "Correctness": "PASS",
+  "data_size_unit": "pingpongs",
+  "latency_unit": "us",
+  "metrics": [
+    {
+      "latency_avg": 5.5295,
+      "num_threads": 32,
+      "pingpongs_num": 32,
+      "throughput_avg": 0.1808
+    },
+    {
+      "latency_avg": 6.7901,
+      "num_threads": 32,
+      "pingpongs_num": 128,
+      "throughput_avg": 0.1473
+    },
+    {
+      "latency_avg": 6.7138,
+      "num_threads": 32,
+      "pingpongs_num": 512,
+      "throughput_avg": 0.1489
+    },
+    {
+      "latency_avg": 5.2555,
+      "num_threads": 32,
+      "pingpongs_num": 2048,
+      "throughput_avg": 0.1903
+    }
+  ],
+  "throughput_unit": "Mops"
+}

@@ -1,0 +1,26 @@
+{
+  "Correctness": "PASS",
+  "data_size_unit": "trial",
+  "metrics": [
+    {
+      "data_size": 1,
+      "pass": true
+    },
+    {
+      "data_size": 2,
+      "pass": true
+    },
+    {
+      "data_size": 3,
+      "pass": true
+    },
+    {
+      "data_size": 4,
+      "pass": true
+    },
+    {
+      "data_size": 5,
+      "pass": true
+    }
+  ]
+}

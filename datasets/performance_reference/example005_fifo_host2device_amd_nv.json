@@ -1,0 +1,58 @@
+{
+  "Correctness": "PASS",
+  "data_size_unit": "items",
+  "latency_unit": "us",
+  "metrics": [
+    {
+      "correct": 32,
+      "data_size": 32,
+      "items_per_sec": 146113,
+      "latency_avg": 6.844,
+      "pass": true,
+      "processed": 32,
+      "throughput_avg": 1.11476,
+      "wall_us": 219.008
+    },
+    {
+      "correct": 64,
+      "data_size": 64,
+      "items_per_sec": 153905,
+      "latency_avg": 6.4975,
+      "pass": true,
+      "processed": 64,
+      "throughput_avg": 1.1742,
+      "wall_us": 415.84
+    },
+    {
+      "correct": 128,
+      "data_size": 128,
+      "items_per_sec": 155697,
+      "latency_avg": 6.42275,
+      "pass": true,
+      "processed": 128,
+      "throughput_avg": 1.18787,
+      "wall_us": 822.112
+    },
+    {
+      "correct": 256,
+      "data_size": 256,
+      "items_per_sec": 158923,
+      "latency_avg": 6.29237,
+      "pass": true,
+      "processed": 256,
+      "throughput_avg": 1.21248,
+      "wall_us": 1610.85
+    },
+    {
+      "correct": 512,
+      "data_size": 512,
+      "items_per_sec": 158585,
+      "latency_avg": 6.30575,
+      "pass": true,
+      "processed": 512,
+      "throughput_avg": 1.20991,
+      "wall_us": 3228.54
+    }
+  ],
+  "throughput_unit": "MBps"
+}

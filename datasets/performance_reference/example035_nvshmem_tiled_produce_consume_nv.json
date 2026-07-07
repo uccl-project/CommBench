@@ -1,0 +1,106 @@
+{
+  "Correctness": "PASS",
+  "data_size_unit": "Bytes",
+  "latency_unit": "us",
+  "metrics": [
+    {
+      "data_size": 65536,
+      "data_size_pretty": "64 KiB",
+      "latency_avg": 47.5759,
+      "pass": true,
+      "side": 128,
+      "throughput_avg": 1.377504
+    },
+    {
+      "data_size": 147456,
+      "data_size_pretty": "144 KiB",
+      "latency_avg": 162.671,
+      "pass": true,
+      "side": 192,
+      "throughput_avg": 0.906468
+    },
+    {
+      "data_size": 262144,
+      "data_size_pretty": "256 KiB",
+      "latency_avg": 392.641,
+      "pass": true,
+      "side": 256,
+      "throughput_avg": 0.667643
+    },
+    {
+      "data_size": 409600,
+      "data_size_pretty": "400 KiB",
+      "latency_avg": 1134.7784,
+      "pass": true,
+      "side": 320,
+      "throughput_avg": 0.360952
+    },
+    {
+      "data_size": 589824,
+      "data_size_pretty": "576 KiB",
+      "latency_avg": 2134.6272,
+      "pass": true,
+      "side": 384,
+      "throughput_avg": 0.276312
+    },
+    {
+      "data_size": 1048576,
+      "data_size_pretty": "1 MiB",
+      "latency_avg": 5685.9424,
+      "pass": true,
+      "side": 512,
+      "throughput_avg": 0.184416
+    },
+    {
+      "data_size": 1638400,
+      "data_size_pretty": "1.56 MiB",
+      "latency_avg": 14047.6618,
+      "pass": true,
+      "side": 640,
+      "throughput_avg": 0.116632
+    },
+    {
+      "data_size": 2359296,
+      "data_size_pretty": "2.25 MiB",
+      "latency_avg": 32738.5391,
+      "pass": true,
+      "side": 768,
+      "throughput_avg": 0.072065
+    },
+    {
+      "data_size": 4194304,
+      "data_size_pretty": "4 MiB",
+      "latency_avg": 86379.0439,
+      "pass": true,
+      "side": 1024,
+      "throughput_avg": 0.048557
+    },
+    {
+      "data_size": 6553600,
+      "data_size_pretty": "6.25 MiB",
+      "latency_avg": 230883.5959,
+      "pass": true,
+      "side": 1280,
+      "throughput_avg": 0.028385
+    },
+    {
+      "data_size": 9437184,
+      "data_size_pretty": "9 MiB",
+      "latency_avg": 519155.8729,
+      "pass": true,
+      "side": 1536,
+      "throughput_avg": 0.018178
+    },
+    {
+      "data_size": 16777216,
+      "data_size_pretty": "16 MiB",
+      "latency_avg": 1349260.6923,
+      "pass": true,
+      "side": 2048,
+      "throughput_avg": 0.012434
+    }
+  ],
+  "throughput_unit": "GB/s",
+  "tile_M": 64,
+  "tile_N": 64
+}
