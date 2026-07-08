@@ -3,3 +3,6 @@ google-genai
 matplotlib
 openai
 tiktoken
+tree-sitter
+tree-sitter-cpp
+tree-sitter-python
